@@ -3,6 +3,7 @@ const exphbs = require('express-handlebars')
 const path = require('path')
 
 const conn = require('./db/conn')
+const Task = require('./models/Task')
 
 const app = express()
 
@@ -21,4 +22,9 @@ app.use(express.json())
 
 app.use(express.static('public'))
 
-app.listen(3333)
+conn
+  .sync()
+  .then(() => {
+    app.listen(3333)
+  })
+  .catch((error) => console.log(error))
