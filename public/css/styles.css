@@ -64,3 +64,56 @@ form input[type='submit'] {
   border: none;
   cursor: pointer;
 }
+
+.task-list {
+  list-style: none;
+  margin-top: 1em;
+}
+
+.task-list li {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-list .title {
+  font-weight: bold;
+  color: #db4c3f;
+  transition: 0.5s;
+  font-size: 1.2em;
+}
+
+.task-list .title:hover {
+  color: #333;
+}
+
+.actions {
+  display: flex;
+}
+
+.actions i {
+  font-size: 1.5em;
+  margin-right: 0.6em;
+  color: #333;
+}
+
+.actions i:hover {
+  color: #db4c3f;
+}
+
+.actions form {
+  margin: 0;
+}
+
+.actions button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.title.done {
+  text-decoration: line-through;
+  color: #ccc;
+}
