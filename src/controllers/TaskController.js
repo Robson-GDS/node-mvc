@@ -25,6 +25,14 @@ module.exports = class TaskController {
     response.redirect('/tasks')
   }
 
+  static async updateTask(request, response) {
+    const { id } = request.params
+
+    const task = await Task.findOne({where: {id}, raw: true})
+
+    response.render('tasks/edit', {task})
+  }
+
   static async showTasks(request, response) {
     const tasks = await Task.findAll({raw: true})
 
