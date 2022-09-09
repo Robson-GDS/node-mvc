@@ -33,6 +33,19 @@ module.exports = class TaskController {
     response.render('tasks/edit', {task})
   }
 
+  static async updateTaskPost(request, response) {
+    const { id } = request.body
+
+    const task = {
+      title: request.body.title,
+      description: request.body.description
+    }
+
+    await Task.update(task, {where: {id}})
+
+    response.redirect('/tasks')
+  }
+
   static async showTasks(request, response) {
     const tasks = await Task.findAll({raw: true})
 
